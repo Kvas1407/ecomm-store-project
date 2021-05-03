@@ -1,4 +1,4 @@
-
+//Image gallery selection filter-------------
 
 const mainImage = document.querySelector('#main')
 const productGallery = document.querySelector('#productGallery')
