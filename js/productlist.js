@@ -47,6 +47,8 @@ const productList= [
     },
 ];
 
+
+//storing html code into js and fetching the products dynamically
     const productResult = document.querySelector('.results')
     
     productList.forEach((productItem)=> {
@@ -100,7 +102,7 @@ const productList= [
 
 
 
-  //----SEARCH FILTER FUNCTION----
+  //----Search Filter Function----
 
 const filterSearch = document.getElementById('filterSearch');
 
