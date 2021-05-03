@@ -45,24 +45,22 @@ const productList= [
     productImage: '6.jpg'
     
     },
-]
+];
 
-    const productResult = document.querySelector(`.results`)
-    const userInput = document.querySelector('.search-input')
+    const productResult = document.querySelector('.results')
     
-    const displayProduct = function(prodArray)
-    {
-        productResult.innerHTML = '<h2 class="subheading">Results</h2>'
-        prodArray.forEach((product) => {
+    productList.forEach((productItem)=> {
 
-    const oneProduct = document.createElement(`article`)
-    oneProduct.classList.add(`product`)
-    oneProduct.innerHTML = `
-    <header>
-            <a href="product.html" target="_blank"><img src="/ecomm-store-project/img/Product-Images/${product.productImage}" alt="${product.productName}" class="img-shoe"></a>
-            <h3 class="h3-heading">${product.productName}</h3>
-            <data value="39" class="para-product"><del>$90.00</del> <ins>$89.00</ins></data>
-            <p class="para-product">${product.productDescp}</p>
+      const proArray = document.createElement('article')
+  
+      proArray.classList.add('productItem')
+     proArray.innerHTML=`
+     <article class="product"> 
+     <header>
+            <a href="product.html" target="_blank"><img src="/img/Product-Images/${productItem.productImage}" alt="${productItem.productDescp}" class="img-shoe"></a>
+            <h3 class="h3-heading">${productItem.productName}</h3>
+            <data value="39" class="para-product"><del>$90.00</del> <ins>${productItem.productPrice}</ins></data>
+            <p class="para-product">Here is a shot of this product that might entice a user to click and add it to their cart.</p>
             <dl>
               <dt class="filtertype">Rating</dt>
               <dd>4.4 <span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star_half</span></dd>
@@ -89,13 +87,100 @@ const productList= [
           <footer>
             <button type="button"><span class="material-icons">add_shopping_cart</span> Add to Cart</button>
             <button type="button"><span class="material-icons">favorite</span></button>
-          </footer>        
-          `
+          </footer>
+          </header></article>
+         `
+       
+      productResult.appendChild(proArray);
+  
+       
+  
+  });
 
-          productResult.appendChild(oneProduct)
 
-        })
-    }
+
+
+  //----SEARCH FILTER FUNCTION----
+
+const filterSearch = document.getElementById('filterSearch');
+
+
+const setFilter= function(productList){
+
+    productResult.innerHTML = ''
+
+    productList.forEach((productItem) =>{
+
+        let items = document.createElement('article');
+
+        items.classList.add('productItem');
+
+        items.innerHTML =`  <article class="product"> 
+        <header>
+               <a href="product.html" target="_blank"><img src="/img/Product-Images/${productItem.productImage}" alt="${productItem.productDescp}" class="img-shoe"></a>
+               <h3 class="h3-heading">${productItem.productName}</h3>
+               <data value="39" class="para-product"><del>$90.00</del> <ins>${productItem.productPrice}</ins></data>
+               <p class="para-product">Here is a shot of this product that might entice a user to click and add it to their cart.</p>
+               <dl>
+                 <dt class="filtertype">Rating</dt>
+                 <dd>4.4 <span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star_half</span></dd>
+               </dl>
+             </header>
+             <form>
+               <fieldset>
+                 <legend class="filtertype">Colours</legend>
+                 <ul>
+                   <li class="color-radio"><label><input type="radio" name="colour" value="r"> Red</label></li>
+                   <li class="color-radio"><label><input type="radio" name="colour" value="w" > White</label></li>
+                   <li class="color-radio"><label><input type="radio" name="colour" value="b" > Blue</label></li>
+                 </ul>
+               </fieldset>
+               <fieldset>
+                 <legend class="filtertype">Sizes</legend>
+                 <ol>
+                   <li  class="color-radio"><label><input type="radio" name="size" value="m"> 9</label></li>
+                   <li  class="color-radio"><label><input type="radio" name="size" value="l"> 9.5</label></li>
+                   <li  class="color-radio"><label><input type="radio" name="size" value="xl"> 10</label></li>
+                 </ol>
+               </fieldset>
+             </form>
+             <footer>
+               <button type="button"><span class="material-icons">add_shopping_cart</span> Add to Cart</button>
+               <button type="button"><span class="material-icons">favorite</span></button>
+             </footer>
+             </header></article>`
+          
+         productResult.appendChild(items);
+     
+    });
+
+}
+
+filterSearch.addEventListener('input', function(event){
+    const query = event.target.value.toUpperCase();
+   
+   
+       const filteredShoe=  productList.filter(function(productItem){
+           let shoe= productItem.productName.toUpperCase()
+   
+           if(shoe.includes(query)){
+               return true
+           }
+           else{
+               return false
+           }
+       });
+       
+       setFilter(filteredShoe);
+   
+   
+    
+   });
+
+
+
+      
+   
         
           
     
