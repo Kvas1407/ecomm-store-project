@@ -40,7 +40,17 @@ html {
       
 }
 .banner{
+    height:auto;
     max-width: 100%;
+    right: 0;
+    margin-right: 0em;
+}
+.bannerImg{
+    width:100em;
+  object-fit: fill;
+  margin-right: 0em;
+  height:500px;
+  
 }
 
 /* Organisation name styling */
