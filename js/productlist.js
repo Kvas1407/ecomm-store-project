@@ -59,7 +59,7 @@ const productList= [
      proArray.innerHTML=`
      <article class="product"> 
      <header>
-            <a href="product.html" target="_blank"><img src="ecomm-store-project/img/Product-Images/${productItem.productImage}" alt="${productItem.productDescp}" class="img-shoe"></a>
+            <a href="product.html" target="_blank"><img src="/ecomm-store-project/img/Product-Images/${productItem.productImage}" alt="${productItem.productDescp}" class="img-shoe"></a>
             <h3 class="h3-heading">${productItem.productName}</h3>
             <data value="39" class="para-product"><del>$90.00</del> <ins>${productItem.productPrice}</ins></data>
             <p class="para-product">Here is a shot of this product that might entice a user to click and add it to their cart.</p>
@@ -119,7 +119,7 @@ const setFilter= function(productList){
 
         items.innerHTML =`  <article class="product"> 
         <header>
-               <a href="product.html" target="_blank"><img src="ecomm-store-project/img/Product-Images/${productItem.productImage}" alt="${productItem.productDescp}" class="img-shoe"></a>
+               <a href="product.html" target="_blank"><img src="/ecomm-store-project/img/Product-Images/${productItem.productImage}" alt="${productItem.productDescp}" class="img-shoe"></a>
                <h3 class="h3-heading">${productItem.productName}</h3>
                <data value="39" class="para-product"><del>$90.00</del> <ins>${productItem.productPrice}</ins></data>
                <p class="para-product">Here is a shot of this product that might entice a user to click and add it to their cart.</p>
